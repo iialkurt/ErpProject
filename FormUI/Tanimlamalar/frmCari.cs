@@ -1,6 +1,9 @@
 ﻿using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using DevExpress.XtraEditors;
+using DevExpress.XtraExport.Helpers;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Columns;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -29,6 +32,14 @@ namespace FormUI.Tanimlamalar
         {
 
             cariGridControl.DataSource = cariManager.GetCariList();
+            //   MessageBox.Show(cariGridView.Columns["Firma_Adi"].ToString());
+            cariGridView.OptionsBehavior.Editable = false;  
+            cariGridView.Columns[0].Caption = "Firma Adı";
+            cariGridView.Columns["Yetkili_Ad_Soyad"].Caption = "Yetkili Ad Soyad";
+            cariGridView.Columns[2].Visible = false;    
+
+
+
         }
 
 
@@ -83,6 +94,25 @@ namespace FormUI.Tanimlamalar
             {
                 if (item.GetType().ToString() == "System.Windows.Forms.TextBox") item.Text = string.Empty;
             }
+        }
+
+        private void cariGridView_DoubleClick(object sender, EventArgs e)
+        {
+            List<int> row = cariGridView.GetSelectedRows().Where(c => c >= 0).ToList();
+            row.ForEach(d =>
+            {
+
+                    txtAdSoyad.Text = cariGridView.GetRowCellValue(d, "Yetkili_Ad_Soyad").ToString();
+                    txtFirmaAdi.Text = cariGridView.GetRowCellValue(d, "Firma_Adi").ToString();
+                    txtVergiNo.Text = cariGridView.GetRowCellValue(d, "Vergi_No").ToString();
+                    txtVergiDaire.Text = cariGridView.GetRowCellValue(d, "Vergi_Dairesi").ToString();
+                    rcAdres.Text = cariGridView.GetRowCellValue(d, "Adres").ToString();
+
+                
+               
+
+            });
+
         }
     }
 }

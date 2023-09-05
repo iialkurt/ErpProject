@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             cariGridControl = new DevExpress.XtraGrid.GridControl();
-            gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            cariGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             txtFirmaAdi = new DevExpress.XtraEditors.TextEdit();
             btnCariEkle = new DevExpress.XtraEditors.SimpleButton();
             label1 = new System.Windows.Forms.Label();
@@ -54,8 +55,9 @@
             cmbSehir = new DevExpress.XtraEditors.ComboBoxEdit();
             cmbIlce = new DevExpress.XtraEditors.ComboBoxEdit();
             btnClear = new DevExpress.XtraEditors.SimpleButton();
+            contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(components);
             ((System.ComponentModel.ISupportInitialize)cariGridControl).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)cariGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtFirmaAdi.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtAdSoyad.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtVergiNo.Properties).BeginInit();
@@ -72,16 +74,17 @@
             // 
             cariGridControl.Dock = System.Windows.Forms.DockStyle.Bottom;
             cariGridControl.Location = new System.Drawing.Point(0, 294);
-            cariGridControl.MainView = gridView1;
+            cariGridControl.MainView = cariGridView;
             cariGridControl.Name = "cariGridControl";
             cariGridControl.Size = new System.Drawing.Size(1214, 338);
             cariGridControl.TabIndex = 0;
-            cariGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
+            cariGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { cariGridView });
             // 
-            // gridView1
+            // cariGridView
             // 
-            gridView1.GridControl = cariGridControl;
-            gridView1.Name = "gridView1";
+            cariGridView.GridControl = cariGridControl;
+            cariGridView.Name = "cariGridView";
+            cariGridView.DoubleClick += cariGridView_DoubleClick;
             // 
             // txtFirmaAdi
             // 
@@ -281,6 +284,12 @@
             btnClear.Text = "Temizle";
             btnClear.Click += btnClear_Click;
             // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // frmCari
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -315,7 +324,7 @@
             Text = "Firma Ekle";
             Load += frmCari_Load;
             ((System.ComponentModel.ISupportInitialize)cariGridControl).EndInit();
-            ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)cariGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtFirmaAdi.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtAdSoyad.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtVergiNo.Properties).EndInit();
@@ -333,7 +342,7 @@
         #endregion
 
         private DevExpress.XtraGrid.GridControl cariGridControl;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView cariGridView;
         private DevExpress.XtraEditors.TextEdit txtFirmaAdi;
         private DevExpress.XtraEditors.SimpleButton btnCariEkle;
         private System.Windows.Forms.Label label1;
@@ -358,5 +367,6 @@
         private DevExpress.XtraEditors.ComboBoxEdit cmbSehir;
         private DevExpress.XtraEditors.ComboBoxEdit cmbIlce;
         private DevExpress.XtraEditors.SimpleButton btnClear;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

@@ -24,7 +24,9 @@ namespace DataAccess.Concrete.EntityFramework
                                  Adres = c.Adres,
                                  Vergi_Dairesi = c.Vergi_Dairesi,
                                  Vergi_No = c.Vergi_No
+                                
                              };
+                
                 return result.ToList(); 
                             
             }
